@@ -1,6 +1,6 @@
 import { WidgetConfig } from "@medusajs/admin";
 
-import { Button, Container, Heading, Text } from "@medusajs/ui";
+import { Button, Container, Text } from "@medusajs/ui";
 
 const BrandWidget = () => {
   return (
@@ -11,9 +11,9 @@ const BrandWidget = () => {
             <div className="flex w-2/3 gap-x-8">
               <div className="flex flex-col flex-1 gap-y-2">
                 <div className="flex items-center gap-x-2">
-                  <Heading level="h1" className="text-ui-fg-base">
+                  <Text size="large" weight="plus" className="text-ui-fg-base">
                     Brands
-                  </Heading>
+                  </Text>
                 </div>
                 <div className="flex items-center gap-x-2">
                   <Text className="inter-base-regular text-grey-50">

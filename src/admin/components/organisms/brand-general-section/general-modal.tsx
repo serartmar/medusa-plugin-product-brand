@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Button, FocusModal, Heading } from "@medusajs/ui";
+import { Button, FocusModal, Text } from "@medusajs/ui";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import GeneralForm, { GeneralFormType } from "../../forms/general-form";
@@ -12,6 +12,7 @@ import MetadataForm, {
   getMetadataFormValues,
   getSubmittableMetadata,
 } from "../../forms/metadata-form";
+import * as FocusModalPrimitives from "@radix-ui/react-dialog";
 
 type Props = {
   brand: ProductBrand;
@@ -59,7 +60,7 @@ const GeneralModal = ({ brand }: Props) => {
 
   return (
     <>
-      <FocusModal open={open} onOpenChange={setOpen}>
+      <FocusModalPrimitives.Root open={open} onOpenChange={setOpen}>
         <FocusModal.Trigger asChild>
           <Button variant="secondary" size="base">
             <PencilSquare />
@@ -83,9 +84,9 @@ const GeneralModal = ({ brand }: Props) => {
           </FocusModal.Header>
           <FocusModal.Body className="flex flex-col items-center py-16 overflow-y-auto">
             <div className="h-full w-full px-[20rem]">
-              <Heading level="h1" className="text-ui-fg-base">
+              <Text size="large" weight="plus" className="text-ui-fg-base">
                 {t("edit-brand", "Edit Brand")}
-              </Heading>
+              </Text>
               <GeneralForm form={nestedForm(form, "general")} />
               <div className="mt-xlarge">
                 <h2 className="inter-base-semibold mb-base">
@@ -96,7 +97,7 @@ const GeneralModal = ({ brand }: Props) => {
             </div>
           </FocusModal.Body>
         </FocusModal.Content>
-      </FocusModal>
+      </FocusModalPrimitives.Root>
     </>
   );
 };

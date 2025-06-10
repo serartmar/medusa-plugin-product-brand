@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import * as FocusModalPrimitives from "@radix-ui/react-dialog";
 import { useTranslation } from "react-i18next";
 import useEditProductBrandActions from "../../../hooks/use-edit-brand-actions";
 import { FormImage } from "../../../../types/shared";
@@ -86,7 +87,7 @@ const ThumbnailModal = ({ brand, open, onClose }: Props) => {
   });
 
   return (
-    <FocusModal open={open} onOpenChange={onReset}>
+    <FocusModalPrimitives.Root open={open} onOpenChange={onReset}>
       <FocusModal.Content>
         <FocusModal.Header>
           <Button
@@ -116,7 +117,7 @@ const ThumbnailModal = ({ brand, open, onClose }: Props) => {
           </div>
         </FocusModal.Body>
       </FocusModal.Content>
-    </FocusModal>
+    </FocusModalPrimitives.Root>
   );
 };
 

@@ -55,14 +55,7 @@ const ThumbnailForm = ({ form }: Props) => {
 
           <div className="gap-y-2xsmall flex flex-col">
             {fields.map((field, index) => {
-              return (
-                <Image
-                  key={field.id}
-                  image={field}
-                  index={index}
-                  remove={remove}
-                />
-              );
+              return <Image image={field} index={index} remove={remove} />;
             })}
           </div>
         </div>

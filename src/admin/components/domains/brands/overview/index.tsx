@@ -83,12 +83,13 @@ const Overview = () => {
           <div className="pb-large">
             <div className="flex items-start justify-between">
               <div className="gap-x-base text-grey-40 flex">
-                <Heading
-                  level="h1"
+                <Text
+                  size="large"
+                  weight="plus"
                   className="text-[16px] text-grey-90 font-semibold inter-large-semibold leading-6"
                 >
                   Brands
-                </Heading>
+                </Text>
               </div>
 
               <div className="flex items-center space-x-2">

@@ -1,11 +1,4 @@
-import {
-  Button,
-  FocusModal,
-  ProgressAccordion,
-  useToast,
-  Toaster,
-  Heading,
-} from "@medusajs/ui";
+import { Button, FocusModal, useToast, Toaster, Text } from "@medusajs/ui";
 import { useAdminCustomPost, useMedusa } from "medusa-react";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
@@ -19,6 +12,7 @@ import { nestedForm } from "../../../../utils/nested-form";
 import { useState } from "react";
 import { FormImage } from "../../../../../types/shared";
 import ThumbnailForm from "../../../../components/forms/thumbnail-form";
+import * as FocusModalPrimitives from "@radix-ui/react-dialog";
 
 type AdminProductBrandCreateReq = {
   title: string;
@@ -134,7 +128,7 @@ const NewProductBrand = () => {
   return (
     <>
       <Toaster />
-      <FocusModal open={open} onOpenChange={setOpen}>
+      <FocusModalPrimitives.Root open={open} onOpenChange={setOpen}>
         <FocusModal.Trigger asChild>
           <Button variant="secondary" size="base" onClick={null}>
             New Brand
@@ -146,18 +140,18 @@ const NewProductBrand = () => {
           </FocusModal.Header>
           <FocusModal.Body className="flex flex-col items-center py-16 overflow-y-auto">
             <div className="h-full w-full px-[20rem]">
-              <Heading level="h1" className="text-ui-fg-base">
+              <Text size="large" weight="plus" className="text-ui-fg-base">
                 {t("new-general-information-title", "General information")}
-              </Heading>
+              </Text>
               <GeneralForm form={nestedForm(form, "general")} />
-              <Heading level="h1" className="text-ui-fg-base">
+              <Text size="large" weight="plus" className="text-ui-fg-base">
                 {t("new-thumbnail-title", "Thumbnail")}
-              </Heading>
+              </Text>
               <ThumbnailForm form={nestedForm(form, "thumbnail")} />
             </div>
           </FocusModal.Body>
         </FocusModal.Content>
-      </FocusModal>
+      </FocusModalPrimitives.Root>
     </>
   );
 };
