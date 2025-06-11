@@ -53,4 +53,7 @@ module.exports = {
   projectConfig,
   plugins,
   modules,
+  admin: {
+    path: "./src/admin",
+  },
 };
